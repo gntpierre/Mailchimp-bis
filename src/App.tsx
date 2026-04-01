@@ -123,7 +123,7 @@ export default function App() {
     const unlayer = emailEditorRef.current?.editor;
     if (!unlayer) return;
 
-    unlayer.exportDesign((design) => {
+    unlayer.saveDesign((design) => {
       const newTemplate: SavedTemplate = {
         id: Date.now().toString(),
         name: templateName.trim(),
