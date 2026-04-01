@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import EmailEditor, { EditorRef } from 'react-email-editor';
-import { Settings, Send, Mail, Loader2, Save, FolderOpen, Trash2, Eye } from 'lucide-react';
+import { Settings, Send, Mail, Loader2, Save, FolderOpen, Trash2, Eye, Undo, Redo } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 
 interface SavedTemplate {
@@ -158,6 +158,20 @@ export default function App() {
     toast.success('Template deleted');
   };
 
+  const handleUndo = () => {
+    const unlayer = emailEditorRef.current?.editor;
+    if (unlayer && typeof unlayer.undo === 'function') {
+      unlayer.undo();
+    }
+  };
+
+  const handleRedo = () => {
+    const unlayer = emailEditorRef.current?.editor;
+    if (unlayer && typeof unlayer.redo === 'function') {
+      unlayer.redo();
+    }
+  };
+
   const handleSend = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -257,6 +271,22 @@ export default function App() {
           
           {activeTab === 'editor' && (
             <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-1 border-r border-gray-200 pr-2 mr-1">
+                <button
+                  onClick={handleUndo}
+                  title="Undo"
+                  className="p-2 text-viaid-dark/70 hover:bg-gray-100 rounded-lg transition-colors"
+                >
+                  <Undo className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={handleRedo}
+                  title="Redo"
+                  className="p-2 text-viaid-dark/70 hover:bg-gray-100 rounded-lg transition-colors"
+                >
+                  <Redo className="w-4 h-4" />
+                </button>
+              </div>
               <button
                 onClick={handlePreview}
                 className="flex items-center px-3 py-2 bg-white border border-gray-300 text-viaid-dark/70 rounded-lg hover:bg-gray-50 transition-colors font-medium text-sm shadow-sm"
