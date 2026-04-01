@@ -1,0 +1,5 @@
+{
+  "name": "MailCrafter",
+  "description": "A simple email builder and sender using your own SMTP server.",
+  "requestFramePermissions": []
+}
