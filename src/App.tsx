@@ -225,10 +225,9 @@ export default function App() {
       {/* Header */}
       <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between sticky top-0 z-10">
         <div className="flex items-center space-x-2">
-          <div className="bg-blue-600 p-2 rounded-lg">
-            <Mail className="w-6 h-6 text-white" />
-          </div>
-          <h1 className="text-xl font-bold text-gray-900">MailCrafter</h1>
+          <img src="https://www.via-id.com/wp-content/themes/maestro/library/dist/images/logo.svg" alt="Via ID" className="h-8" referrerPolicy="no-referrer" />
+          <div className="h-6 w-px bg-gray-300"></div>
+          <h1 className="text-lg font-semibold text-viaid-dark">MailCrafter</h1>
         </div>
         
         <div className="flex items-center space-x-4">
@@ -237,8 +236,8 @@ export default function App() {
               onClick={() => setActiveTab('editor')}
               className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                 activeTab === 'editor' 
-                  ? 'bg-white text-gray-900 shadow-sm' 
-                  : 'text-gray-500 hover:text-gray-900'
+                  ? 'bg-white text-viaid-dark shadow-sm' 
+                  : 'text-gray-500 hover:text-viaid-dark'
               }`}
             >
               Editor
@@ -247,8 +246,8 @@ export default function App() {
               onClick={() => setActiveTab('settings')}
               className={`px-4 py-2 rounded-md text-sm font-medium transition-colors flex items-center space-x-2 ${
                 activeTab === 'settings' 
-                  ? 'bg-white text-gray-900 shadow-sm' 
-                  : 'text-gray-500 hover:text-gray-900'
+                  ? 'bg-white text-viaid-dark shadow-sm' 
+                  : 'text-gray-500 hover:text-viaid-dark'
               }`}
             >
               <Settings className="w-4 h-4 mr-2" />
@@ -260,28 +259,28 @@ export default function App() {
             <div className="flex items-center space-x-2">
               <button
                 onClick={handlePreview}
-                className="flex items-center px-3 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium text-sm shadow-sm"
+                className="flex items-center px-3 py-2 bg-white border border-gray-300 text-viaid-dark/70 rounded-lg hover:bg-gray-50 transition-colors font-medium text-sm shadow-sm"
               >
                 <Eye className="w-4 h-4 mr-2" />
                 Preview
               </button>
               <button
                 onClick={() => setIsLoadModalOpen(true)}
-                className="flex items-center px-3 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium text-sm shadow-sm"
+                className="flex items-center px-3 py-2 bg-white border border-gray-300 text-viaid-dark/70 rounded-lg hover:bg-gray-50 transition-colors font-medium text-sm shadow-sm"
               >
                 <FolderOpen className="w-4 h-4 mr-2" />
                 Load
               </button>
               <button
                 onClick={() => setIsSaveModalOpen(true)}
-                className="flex items-center px-3 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium text-sm shadow-sm"
+                className="flex items-center px-3 py-2 bg-white border border-gray-300 text-viaid-dark/70 rounded-lg hover:bg-gray-50 transition-colors font-medium text-sm shadow-sm"
               >
                 <Save className="w-4 h-4 mr-2" />
                 Save
               </button>
               <button
                 onClick={() => setIsSendModalOpen(true)}
-                className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm shadow-sm ml-2"
+                className="flex items-center px-4 py-2 bg-viaid-accent text-white rounded-lg hover:bg-viaid-accent-hover transition-colors font-medium text-sm shadow-sm ml-2"
               >
                 <Send className="w-4 h-4 mr-2" />
                 Send Email
@@ -311,7 +310,7 @@ export default function App() {
         <div className={`flex-1 p-8 max-w-2xl mx-auto w-full ${activeTab === 'settings' ? 'block' : 'hidden'}`}>
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
               <div className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-900">SMTP Settings</h2>
+                <h2 className="text-2xl font-bold text-viaid-dark">SMTP Settings</h2>
                 <p className="text-gray-500 mt-2">
                   Configure your email provider to send emails directly from this app. 
                   These settings are stored locally in your browser.
@@ -321,7 +320,7 @@ export default function App() {
               <form onSubmit={saveSettings} className="space-y-6">
                 <div className="grid grid-cols-2 gap-6">
                   <div className="col-span-2 sm:col-span-1">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-viaid-dark/70 mb-1">
                       SMTP Host
                     </label>
                     <input
@@ -330,11 +329,11 @@ export default function App() {
                       placeholder="smtp.gmail.com"
                       value={smtpConfig.host}
                       onChange={(e) => setSmtpConfig({...smtpConfig, host: e.target.value})}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-viaid-accent focus:border-viaid-accent outline-none transition-all"
                     />
                   </div>
                   <div className="col-span-2 sm:col-span-1">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-viaid-dark/70 mb-1">
                       Port
                     </label>
                     <input
@@ -343,11 +342,11 @@ export default function App() {
                       placeholder="587"
                       value={smtpConfig.port}
                       onChange={(e) => setSmtpConfig({...smtpConfig, port: e.target.value})}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-viaid-accent focus:border-viaid-accent outline-none transition-all"
                     />
                   </div>
                   <div className="col-span-2 sm:col-span-1">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-viaid-dark/70 mb-1">
                       Username / Email
                     </label>
                     <input
@@ -356,11 +355,11 @@ export default function App() {
                       placeholder="you@example.com"
                       value={smtpConfig.user}
                       onChange={(e) => setSmtpConfig({...smtpConfig, user: e.target.value})}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-viaid-accent focus:border-viaid-accent outline-none transition-all"
                     />
                   </div>
                   <div className="col-span-2 sm:col-span-1">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-viaid-dark/70 mb-1">
                       Password / App Password
                     </label>
                     <input
@@ -369,11 +368,11 @@ export default function App() {
                       placeholder="••••••••"
                       value={smtpConfig.pass}
                       onChange={(e) => setSmtpConfig({...smtpConfig, pass: e.target.value})}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-viaid-accent focus:border-viaid-accent outline-none transition-all"
                     />
                   </div>
                   <div className="col-span-2">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-viaid-dark/70 mb-1">
                       Sender Name (Optional)
                     </label>
                     <input
@@ -381,7 +380,7 @@ export default function App() {
                       placeholder="My Company"
                       value={smtpConfig.name}
                       onChange={(e) => setSmtpConfig({...smtpConfig, name: e.target.value})}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-viaid-accent focus:border-viaid-accent outline-none transition-all"
                     />
                   </div>
                 </div>
@@ -391,7 +390,7 @@ export default function App() {
                     type="button"
                     onClick={testConnection}
                     disabled={isTestingConnection}
-                    className="px-6 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium shadow-sm flex items-center disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="px-6 py-2 bg-white border border-gray-300 text-viaid-dark/70 rounded-lg hover:bg-gray-50 transition-colors font-medium shadow-sm flex items-center disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     {isTestingConnection ? (
                       <>
@@ -411,9 +410,9 @@ export default function App() {
                 </div>
               </form>
               
-              <div className="mt-8 p-4 bg-blue-50 rounded-lg border border-blue-100">
-                <h3 className="text-sm font-semibold text-blue-900 mb-2">Using Gmail?</h3>
-                <p className="text-sm text-blue-800">
+              <div className="mt-8 p-4 bg-viaid-light rounded-lg border border-gray-200">
+                <h3 className="text-sm font-semibold text-viaid-dark mb-2">Using Gmail?</h3>
+                <p className="text-sm text-viaid-dark/80">
                   If you are using Gmail, you cannot use your regular password. You must generate an <strong>App Password</strong>. 
                   Go to your Google Account &gt; Security &gt; 2-Step Verification &gt; App passwords.
                 </p>
@@ -427,7 +426,7 @@ export default function App() {
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-xl shadow-xl w-full max-w-md overflow-hidden">
             <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
-              <h3 className="text-lg font-bold text-gray-900">Send Email</h3>
+              <h3 className="text-lg font-bold text-viaid-dark">Send Email</h3>
               <button 
                 onClick={() => setIsSendModalOpen(false)}
                 className="text-gray-400 hover:text-gray-600"
@@ -438,7 +437,7 @@ export default function App() {
             
             <form onSubmit={handleSend} className="p-6 space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium text-viaid-dark/70 mb-1">
                   To (Recipient)
                 </label>
                 <input
@@ -447,12 +446,12 @@ export default function App() {
                   placeholder="recipient@example.com"
                   value={sendDetails.to}
                   onChange={(e) => setSendDetails({...sendDetails, to: e.target.value})}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-viaid-accent focus:border-viaid-accent outline-none transition-all"
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium text-viaid-dark/70 mb-1">
                   Subject
                 </label>
                 <input
@@ -461,7 +460,7 @@ export default function App() {
                   placeholder="Hello from MailCrafter!"
                   value={sendDetails.subject}
                   onChange={(e) => setSendDetails({...sendDetails, subject: e.target.value})}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-viaid-accent focus:border-viaid-accent outline-none transition-all"
                 />
               </div>
 
@@ -469,14 +468,14 @@ export default function App() {
                 <button
                   type="button"
                   onClick={() => setIsSendModalOpen(false)}
-                  className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                  className="flex-1 px-4 py-2 border border-gray-300 text-viaid-dark/70 rounded-lg hover:bg-gray-50 transition-colors font-medium"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isSending}
-                  className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium shadow-sm flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="flex-1 px-4 py-2 bg-viaid-accent text-white rounded-lg hover:bg-viaid-accent-hover transition-colors font-medium shadow-sm flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {isSending ? (
                     <>
@@ -500,7 +499,7 @@ export default function App() {
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-xl shadow-xl w-full max-w-md overflow-hidden">
             <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
-              <h3 className="text-lg font-bold text-gray-900">Save Template</h3>
+              <h3 className="text-lg font-bold text-viaid-dark">Save Template</h3>
               <button 
                 onClick={() => setIsSaveModalOpen(false)}
                 className="text-gray-400 hover:text-gray-600"
@@ -511,7 +510,7 @@ export default function App() {
             
             <form onSubmit={handleSaveTemplate} className="p-6 space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium text-viaid-dark/70 mb-1">
                   Template Name
                 </label>
                 <input
@@ -520,7 +519,7 @@ export default function App() {
                   placeholder="e.g., Monthly Newsletter"
                   value={templateName}
                   onChange={(e) => setTemplateName(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-viaid-accent focus:border-viaid-accent outline-none transition-all"
                 />
               </div>
 
@@ -528,13 +527,13 @@ export default function App() {
                 <button
                   type="button"
                   onClick={() => setIsSaveModalOpen(false)}
-                  className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                  className="flex-1 px-4 py-2 border border-gray-300 text-viaid-dark/70 rounded-lg hover:bg-gray-50 transition-colors font-medium"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium shadow-sm flex items-center justify-center"
+                  className="flex-1 px-4 py-2 bg-viaid-accent text-white rounded-lg hover:bg-viaid-accent-hover transition-colors font-medium shadow-sm flex items-center justify-center"
                 >
                   <Save className="w-4 h-4 mr-2" />
                   Save Template
@@ -550,7 +549,7 @@ export default function App() {
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-xl shadow-xl w-full max-w-lg overflow-hidden flex flex-col max-h-[80vh]">
             <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center shrink-0">
-              <h3 className="text-lg font-bold text-gray-900">Load Template</h3>
+              <h3 className="text-lg font-bold text-viaid-dark">Load Template</h3>
               <button 
                 onClick={() => setIsLoadModalOpen(false)}
                 className="text-gray-400 hover:text-gray-600"
@@ -570,11 +569,11 @@ export default function App() {
                   {savedTemplates.map((template) => (
                     <div 
                       key={template.id}
-                      className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-colors group cursor-pointer"
+                      className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-viaid-accent/30 hover:bg-viaid-light transition-colors group cursor-pointer"
                       onClick={() => handleLoadTemplate(template)}
                     >
                       <div>
-                        <h4 className="font-medium text-gray-900">{template.name}</h4>
+                        <h4 className="font-medium text-viaid-dark">{template.name}</h4>
                         <p className="text-xs text-gray-500 mt-1">
                           Last updated: {new Date(template.updatedAt).toLocaleDateString()} {new Date(template.updatedAt).toLocaleTimeString()}
                         </p>
@@ -600,7 +599,7 @@ export default function App() {
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-xl shadow-xl w-full max-w-4xl h-[85vh] flex flex-col overflow-hidden">
             <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center shrink-0">
-              <h3 className="text-lg font-bold text-gray-900">Email Preview</h3>
+              <h3 className="text-lg font-bold text-viaid-dark">Email Preview</h3>
               <button 
                 onClick={() => setIsPreviewModalOpen(false)}
                 className="text-gray-400 hover:text-gray-600"

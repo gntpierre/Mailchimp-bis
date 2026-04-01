@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+@theme {
+  --color-viaid-dark: #112337;
+  --color-viaid-accent: #a00057;
+  --color-viaid-accent-hover: #800045;
+  --color-viaid-light: #f5f5f5;
+}
